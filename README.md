@@ -49,3 +49,22 @@ The naming can be confusing, but "Lifecycle hooks" have nothing to do with "Reac
 - componentDidMount()
   **DO:** Cause Side-Effects
   **DON'T:** Update State (it triggers a re-render)
+
+#### Component Lifecycle-Update
+
+When props or state change, the two triggers for a component to be reevaluated by React, then we go to the update lifecycle.
+
+- getDerivedStateFromProps(props, state) - very rarely needed
+  **DO:** Sync state to props
+  **DON'T:** Cause side-effects
+- shouldComponetUpdate(nextProps, nextState)
+  **DO:** decide whether to continue or not
+  **DON'T:** cause side effects
+- render()
+- Update child component props
+- getSnapshotBeforeUpdate(prevProps, prevState)
+  **DO:** Last-minute DOM ops
+  **DON'T** Cause side effects
+- componentDidUpdate()
+  **DO:** cause side-effects
+  **DON'T:** update state (triggers re-render)
