@@ -76,3 +76,9 @@ When props or state change, the two triggers for a component to be reevaluated b
 useEffect covers all the needed class based lifecycle hooks in one React hook. The React hooks are not lifecycle hooks. It can be added anywhere in the functional component body.
 
 useEffect takes a function that will run for every render cycle.
+
+---
+
+## How React Updates The DOM
+
+render() is called
