@@ -82,3 +82,36 @@ useEffect takes a function that will run for every render cycle.
 ## How React Updates The DOM
 
 render() is called
+
+---
+
+## Setting State Correctly
+
+When old state is needed, we'll want to use prevState to set state:
+
+```javascript
+nameChangedHandler = (e, id) => {
+  const personIndex = this.state.persons.findIndex((p) => {
+    return p.id === id;
+  });
+
+  const person = {
+    ...this.state.persons[personIndex],
+  };
+
+  // Alternative method to that just above
+  // const person = Object.assign({}, this.state.persons[personIndex])
+
+  person.name = e.target.value;
+
+  const persons = [...this.state.persons];
+  persons[personIndex] = person;
+
+  this.setState((prevState, props) => {
+    return {
+      persons: persons,
+      changeCounter: prevState.changeCounter + 1,
+    };
+  });
+};
+```
