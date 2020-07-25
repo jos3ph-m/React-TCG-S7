@@ -115,3 +115,30 @@ nameChangedHandler = (e, id) => {
   });
 };
 ```
+
+---
+
+## Using PropTypes
+
+To install:
+
+```console
+npm install --save prop-types
+```
+
+Import:
+
+```javascript
+import PropTypes from "prop-types";
+```
+
+Use - here we check prop types on a few props we passed into our class based component:
+
+```javascript
+Person.propTypes = {
+  click: PropTypes.func,
+  name: PropTypes.string,
+  age: PropTypes.number,
+  changed: PropTypes.func,
+};
+```
